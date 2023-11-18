@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-from base import db
+from . import db
 
 class Issue(db.Model):
     __tablename__ = 'issues'
