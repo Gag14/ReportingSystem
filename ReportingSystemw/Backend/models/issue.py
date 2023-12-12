@@ -13,16 +13,17 @@ class Issue(db.Model):
     state = db.Column(db.Boolean, default=False)  # Assuming False means not solved
     creation_time = db.Column(db.DateTime, default=datetime.utcnow)
     duration_time = db.Column(db.Interval)
-
     # Define relationships with the User and Partner models
     user = db.relationship('User', backref=db.backref('issues', lazy=True))
     partner = db.relationship('Partner', backref=db.backref('issues', lazy=True))
+    #report_id = db.Column(db.Integer, db.ForeignKey('reports.id'), nullable=False)
+    #report = db.relationship('Report', backpopulates='issues')
 
     def __init__(self, created_by, related_partner_id, content):
         self.created_by = created_by
         self.related_partner_id = related_partner_id
         self.content = content
-
+        
     def get_duration_time(self):
         if self.state:
             return self.duration_time

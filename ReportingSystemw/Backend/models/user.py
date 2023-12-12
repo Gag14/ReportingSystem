@@ -16,7 +16,8 @@ class User(db.Model):
     role = db.Column(db.String(20), nullable=False)
     points = db.Column(db.Integer, default=0)
     password_hash = db.Column(db.String(128), nullable=False)
-
+    #reports = db.relationship('report', backref=db.backref('user', lazy=True))
+    
     def __init__(self, first_name, last_name, email, role, username, password):
         self._first_name = first_name
         self._last_name = last_name

@@ -1,0 +1,13 @@
+# Ignore Python cache directories
+.__pycache__
+
+# Ignore specific cache directory under models
+.models/__pycache__
+
+# Ignore VSCode tmp file
+
+.VSCode
+
+#Ignore DB File
+
+.newdb.db 
